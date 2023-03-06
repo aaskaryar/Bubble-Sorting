@@ -1,0 +1,39 @@
+def bubbleSort(nlist):
+    for passnum in range(len(nlist)-1,0,-1):
+        for i in range(passnum):
+            if nlist[i]>nlist[i+1]:
+                temp = nlist[i]
+                nlist[i] = nlist[i+1]
+                nlist[i+1] = temp
+
+nlist = [14,46,43,27,57,41,45,21,70]
+bubbleSort(nlist)
+print(nlist)
+
+import graphviz
+
+
+def bubbleSort(nlist):
+    g = graphviz.Digraph()
+    g.node("START")
+    g.node("Initialize nlist")
+    g.node("for passnum in range(len(nlist)-1,0,-1):")
+    g.node("    for i in range(passnum):")
+    g.node("        if nlist[i]>nlist[i+1]:")
+    g.node("            Swap elements")
+    g.node("Print sorted nlist")
+    g.node("END")
+    g.edge("START", "Initialize nlist")
+    g.edge("Initialize nlist", "for passnum in range(len(nlist)-1,0,-1):")
+    g.edge("for passnum in range(len(nlist)-1,0,-1):", "    for i in range(passnum):")
+    g.edge("    for i in range(passnum):", "        if nlist[i]>nlist[i+1]:")
+    g.edge("        if nlist[i]>nlist[i+1]:", "            Swap elements")
+    g.edge("            Swap elements", "    for i in range(passnum):")
+    g.edge("for passnum in range(len(nlist)-1,0,-1):", "Print sorted nlist")
+    g.edge("Print sorted nlist", "END")
+    g.render("bubble_sort_graph")
+
+
+nlist = [14, 46, 43, 27, 57, 41, 45, 21, 70]
+bubbleSort(nlist)
+
